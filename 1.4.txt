@@ -1,0 +1,16 @@
+﻿$docker exec -it 28 bash         
+root@28c4a0620cf6:/usr/app# tail -f logs.txt 
+"Docker is easy"
+Thu, 09 May 2019 14:36:49 GMT
+Thu, 09 May 2019 14:36:52 GMT
+Thu, 09 May 2019 14:36:55 GMT
+Thu, 09 May 2019 14:36:58 GMT
+Secret message is:
+"Docker is easy"
+Thu, 09 May 2019 14:37:04 GMT
+Thu, 09 May 2019 14:37:07 GMT
+Thu, 09 May 2019 14:37:10 GMT
+Thu, 09 May 2019 14:37:13 GMT
+Secret message is:
+"Docker is easy"
+^C

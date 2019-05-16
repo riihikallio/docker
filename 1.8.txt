@@ -1,0 +1,2 @@
+﻿$touch /private/tmp/logs.txt
+$docker run -v /private/tmp/logs.txt:/usr/app/logs.txt devopsdockeruh/first_volume_exercise

@@ -1,0 +1,24 @@
+﻿$docker run -it ubuntu sh -c 'echo "Input website:"; read website; echo "Searching.."; sleep 1; curl http://$website;'
+
+Kun kontti odotti "Input website:"-kehotteessa avasin toisen ikkunan, jossa annoin komennot:
+
+$docker ps 
+CONTAINER ID        IMAGE               COMMAND                   CREATED             STATUS              PORTS               NAMES
+87f37040f6f6        ubuntu              "sh -c 'echo \"Input â¦"   14 seconds ago      Up 13 seconds                           boring_spence
+$docker exec -it 87f37040f6f6 /bin/bash
+#apt-get update
+#apt-get install -y curl
+
+Paluu ensimmäiseen ikkunaan:
+
+Input website:
+helsinki.fi
+Searching..
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+

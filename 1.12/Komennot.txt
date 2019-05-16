@@ -1,0 +1,4 @@
+$docker build -t front front
+$docker build -t back back
+$docker run -p 5000:5000 front
+$docker run -p 8000:8000 -v /private/tmp/logs.txt:/backend-example-docker/logs.txt back
