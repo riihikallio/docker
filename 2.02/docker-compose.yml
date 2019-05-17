@@ -1,0 +1,9 @@
+﻿version: '3.5' 
+
+services: 
+    ports_exercise:  
+      image: devopsdockeruh/ports_exercise
+      build: . 
+      ports: 
+        - 80:80
+      container_name: ports_exercise
