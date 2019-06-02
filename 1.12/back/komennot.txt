@@ -1,2 +1,0 @@
-﻿$docker build -t backend .
-$docker run -v /private/tmp/logs.txt:/backend-example-docker/logs.txt -p 8000:8000 backend
