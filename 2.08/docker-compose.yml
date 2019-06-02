@@ -1,0 +1,46 @@
+version: '3.5' 
+
+services: 
+    back:  
+      build: back/
+      container_name: backend
+      environment:
+        - REDIS=redis
+        - DB_USERNAME=postgres
+        - DB_PASSWORD=salasana
+        - DB_NAME=messages
+        - DB_HOST=postgres
+      depends_on:
+        - redis
+        - postgres
+        
+    front:
+      build: front/
+      container_name: frontend
+      depends_on:
+        - back
+        
+    redis:
+      image: redis
+      restart: unless-stopped
+      container_name: rediscache
+      
+    postgres:
+      image: postgres
+      restart: unless-stopped
+      container_name: postgresdb
+      environment:
+        - POSTGRES_PASSWORD=salasana
+        - POSTGRES_DB=messages
+
+    proxy: 
+      image: nginx 
+      container_name: nginxproxy
+      volumes: 
+        - ./nginx.conf:/etc/nginx/nginx.conf
+      ports: 
+        - 80:80 
+        - 8000:8000 
+      depends_on:
+       - front
+       - back

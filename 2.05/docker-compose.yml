@@ -1,0 +1,24 @@
+﻿version: '3.5' 
+
+services: 
+    back:  
+      build: back/
+      ports: 
+        - 8000:8000
+      container_name: backend
+      environment:
+        - REDIS=redis
+      depends_on:
+        - redis
+    front:
+      build: front/
+      ports: 
+        - 5000:5000
+      container_name: frontend
+      depends_on:
+        - back
+    redis:
+      image: redis
+      restart: unless-stopped
+      container_name: rediscache
+      

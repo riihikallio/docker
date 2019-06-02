@@ -1,0 +1,15 @@
+﻿version: '3.5' 
+
+services: 
+    back:  
+      build: back/
+      ports: 
+        - 8000:8000
+      container_name: backend
+    front:
+      build: front/
+      ports: 
+        - 5000:5000
+      container_name: frontend
+      depends_on:
+        - back
