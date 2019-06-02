@@ -2,32 +2,35 @@
 
 services: 
     back:
-        build: ml-kurkkumopo-backend/
+        build: ml-kurkkumopo-backend
         container_name: backend
+        image: backend
         ports:
           - 5000:5000
-        depends_on:
-          - train
-    front:
-        build: ml-kurkkumopo-frontend/
-        ports:
-          - 3000:3000
         volumes:
           - model:/src/model
+        depends_on:
+          - train
+
+    front:
+        build: ml-kurkkumopo-frontend
         container_name: frontend
+        image: frontend
+        ports:
+          - 3000:3000
         depends_on:
           - back
+
     train:
-        build: ml-kurkkumopo-training/
-        volumes:
-          - images:/imgs
-          - data:/data
-          - model:/model
-          - source:/src
+        build: ml-kurkkumopo-training
         container_name: training
+        image: training
+        volumes:
+          - images:/src/imgs
+          - data:/src/data
+          - model:/src/model
 
 volumes:
     images:
     data:
     model:
-    source:
