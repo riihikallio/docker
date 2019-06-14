@@ -1,0 +1,3 @@
+﻿Napit tuli korjattua jo tehtävässä 2.08. En ollut lukenut ohjeita loppuun siinä vaiheessa.
+
+nginx proxy hoitaa myös portin 8000, mikä vaati muutoksia Dockerfileiden API_URL ja FRONT_URL -muuttujiin. Jätin alkuperäiset kommentoituna 2.08:n kansioihin.
